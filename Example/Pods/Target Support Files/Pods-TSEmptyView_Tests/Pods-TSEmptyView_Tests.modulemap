@@ -1,0 +1,6 @@
+framework module Pods_TSEmptyView_Tests {
+  umbrella header "Pods-TSEmptyView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

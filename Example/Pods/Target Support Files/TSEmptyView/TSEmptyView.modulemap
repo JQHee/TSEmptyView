@@ -1,0 +1,6 @@
+framework module TSEmptyView {
+  umbrella header "TSEmptyView-umbrella.h"
+
+  export *
+  module * { export * }
+}

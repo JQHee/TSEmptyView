@@ -1,0 +1,22 @@
+{
+  "name": "TSEmptyView",
+  "version": "0.1.0",
+  "summary": "A short description of TSEmptyView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/leetangsong/TSEmptyView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "leetangsong": "leetangsong@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/leetangsong/TSEmptyView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "TSEmptyView/Classes/**/*"
+}
