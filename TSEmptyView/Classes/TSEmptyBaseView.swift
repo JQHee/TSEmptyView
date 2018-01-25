@@ -11,7 +11,7 @@ import UIKit
 open class TSEmptyBaseView: UIView {
     lazy var contentView: UIView = {
         let temp = UIView()
-        addSubview(temp)
+        self.addSubview(temp)
         return temp
     }()
     open var image: UIImage?{

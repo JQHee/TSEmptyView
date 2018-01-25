@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		097CAFD5E34C7DF4DCC24B7F469D1FCC /* TSEmptyView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D406A7042D4312D7B1F98C51A72AED5E /* TSEmptyView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10AB179D20197D0D00EE699E /* TSEmptyBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB179820197D0D00EE699E /* TSEmptyBaseView.swift */; };
-		10AB179E20197D0D00EE699E /* TSEmptySwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB179920197D0D00EE699E /* TSEmptySwizzle.swift */; };
-		10AB179F20197D0D00EE699E /* UIScrollView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB179A20197D0D00EE699E /* UIScrollView+Empty.swift */; };
-		10AB17A020197D0D00EE699E /* TSEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB179B20197D0D00EE699E /* TSEmptyView.swift */; };
-		10AB17A120197D0D00EE699E /* UIView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB179C20197D0D00EE699E /* UIView+Empty.swift */; };
+		10AB17AB201984F500EE699E /* TSEmptyBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB17A6201984F400EE699E /* TSEmptyBaseView.swift */; };
+		10AB17AC201984F500EE699E /* TSEmptySwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB17A7201984F400EE699E /* TSEmptySwizzle.swift */; };
+		10AB17AD201984F500EE699E /* UIScrollView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB17A8201984F500EE699E /* UIScrollView+Empty.swift */; };
+		10AB17AE201984F500EE699E /* TSEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB17A9201984F500EE699E /* TSEmptyView.swift */; };
+		10AB17AF201984F500EE699E /* UIView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB17AA201984F500EE699E /* UIView+Empty.swift */; };
 		134E1339663D1610351AA273E7A4E9C9 /* Pods-TSEmptyView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25DDEA9022C0DF3EA7D459A5CBAE2993 /* Pods-TSEmptyView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		189D19DAB5D2401EB7B99CF65A5D8B1D /* TSEmptyView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2490EEEA3A82D555ECA8D721916C8D /* TSEmptyView-dummy.m */; };
 		19C536B8557924C3833836274EDABCF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -37,11 +37,11 @@
 		0100D1B0BE1DE5DE9EE18089E722C5D5 /* Pods-TSEmptyView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TSEmptyView_Example-frameworks.sh"; sourceTree = "<group>"; };
 		05BC7E6779CB3902DC711A0EA373E419 /* Pods-TSEmptyView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TSEmptyView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		061190A00E21B812F460CF88EB9EDBE6 /* Pods_TSEmptyView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSEmptyView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10AB179820197D0D00EE699E /* TSEmptyBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSEmptyBaseView.swift; path = TSEmptyView/Classes/TSEmptyBaseView.swift; sourceTree = "<group>"; };
-		10AB179920197D0D00EE699E /* TSEmptySwizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSEmptySwizzle.swift; path = TSEmptyView/Classes/TSEmptySwizzle.swift; sourceTree = "<group>"; };
-		10AB179A20197D0D00EE699E /* UIScrollView+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+Empty.swift"; path = "TSEmptyView/Classes/UIScrollView+Empty.swift"; sourceTree = "<group>"; };
-		10AB179B20197D0D00EE699E /* TSEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSEmptyView.swift; path = TSEmptyView/Classes/TSEmptyView.swift; sourceTree = "<group>"; };
-		10AB179C20197D0D00EE699E /* UIView+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Empty.swift"; path = "TSEmptyView/Classes/UIView+Empty.swift"; sourceTree = "<group>"; };
+		10AB17A6201984F400EE699E /* TSEmptyBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSEmptyBaseView.swift; path = TSEmptyView/Classes/TSEmptyBaseView.swift; sourceTree = "<group>"; };
+		10AB17A7201984F400EE699E /* TSEmptySwizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSEmptySwizzle.swift; path = TSEmptyView/Classes/TSEmptySwizzle.swift; sourceTree = "<group>"; };
+		10AB17A8201984F500EE699E /* UIScrollView+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+Empty.swift"; path = "TSEmptyView/Classes/UIScrollView+Empty.swift"; sourceTree = "<group>"; };
+		10AB17A9201984F500EE699E /* TSEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSEmptyView.swift; path = TSEmptyView/Classes/TSEmptyView.swift; sourceTree = "<group>"; };
+		10AB17AA201984F500EE699E /* UIView+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Empty.swift"; path = "TSEmptyView/Classes/UIView+Empty.swift"; sourceTree = "<group>"; };
 		15CBC8737740716E27B97C46115A8E0F /* TSEmptyView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TSEmptyView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16486ED8875EFFED82626C509E3F26F3 /* Pods-TSEmptyView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TSEmptyView_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		25DDEA9022C0DF3EA7D459A5CBAE2993 /* Pods-TSEmptyView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TSEmptyView_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -143,11 +143,11 @@
 		76132893BE97FDF3D152A9D4512F5483 /* TSEmptyView */ = {
 			isa = PBXGroup;
 			children = (
-				10AB179820197D0D00EE699E /* TSEmptyBaseView.swift */,
-				10AB179920197D0D00EE699E /* TSEmptySwizzle.swift */,
-				10AB179B20197D0D00EE699E /* TSEmptyView.swift */,
-				10AB179A20197D0D00EE699E /* UIScrollView+Empty.swift */,
-				10AB179C20197D0D00EE699E /* UIView+Empty.swift */,
+				10AB17A6201984F400EE699E /* TSEmptyBaseView.swift */,
+				10AB17A7201984F400EE699E /* TSEmptySwizzle.swift */,
+				10AB17A9201984F500EE699E /* TSEmptyView.swift */,
+				10AB17A8201984F500EE699E /* UIScrollView+Empty.swift */,
+				10AB17AA201984F500EE699E /* UIView+Empty.swift */,
 				2A0A64CAE0C61255E71F4F326ED59BD5 /* Support Files */,
 			);
 			name = TSEmptyView;
@@ -309,6 +309,9 @@
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					98413B8D0F142F9D4415CFF152FB1212 = {
+						LastSwiftMigration = 0910;
+					};
 					B8ECD81EEBCD378AB0253A186ADF1096 = {
 						LastSwiftMigration = 0910;
 					};
@@ -354,12 +357,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10AB179D20197D0D00EE699E /* TSEmptyBaseView.swift in Sources */,
-				10AB179E20197D0D00EE699E /* TSEmptySwizzle.swift in Sources */,
-				10AB17A020197D0D00EE699E /* TSEmptyView.swift in Sources */,
-				10AB179F20197D0D00EE699E /* UIScrollView+Empty.swift in Sources */,
+				10AB17AF201984F500EE699E /* UIView+Empty.swift in Sources */,
+				10AB17AB201984F500EE699E /* TSEmptyBaseView.swift in Sources */,
+				10AB17AD201984F500EE699E /* UIScrollView+Empty.swift in Sources */,
+				10AB17AE201984F500EE699E /* TSEmptyView.swift in Sources */,
 				189D19DAB5D2401EB7B99CF65A5D8B1D /* TSEmptyView-dummy.m in Sources */,
-				10AB17A120197D0D00EE699E /* UIView+Empty.swift in Sources */,
+				10AB17AC201984F500EE699E /* TSEmptySwizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BE91787E7D48CED70716D7BE86D559D /* TSEmptyView.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -626,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BE91787E7D48CED70716D7BE86D559D /* TSEmptyView.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
