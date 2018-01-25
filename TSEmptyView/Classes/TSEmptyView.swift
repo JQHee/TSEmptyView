@@ -110,26 +110,26 @@ open class TSEmptyView: TSEmptyBaseView {
     open lazy var imageView: UIImageView = {
         let temp = UIImageView()
         temp.contentMode = .scaleAspectFit
-        contentView.addSubview(temp)
+        self.contentView.addSubview(temp)
         return temp
     }()
     open lazy var titleLabel: UILabel = {
         let temp = UILabel()
         temp.textAlignment = .center
-        contentView.addSubview(temp)
+        self.contentView.addSubview(temp)
         return temp
     }()
     open lazy var detailLabel: UILabel = {
         let temp = UILabel()
         temp.textAlignment = .center
         temp.numberOfLines = 2
-        contentView.addSubview(temp)
+        self.contentView.addSubview(temp)
         return temp
     }()
     open lazy var actionButton: UIButton = {
         let temp = UIButton()
         temp.layer.masksToBounds = true
-        contentView.addSubview(temp)
+        self.contentView.addSubview(temp)
         return temp
     }()
     private var contentMaxWidth: CGFloat = 0 //最大宽度
