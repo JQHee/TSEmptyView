@@ -58,6 +58,7 @@ open class TSEmptyBaseView: UIView {
                 btnTitle: String?,
                 target: Any?,
                 action:Selector) {
+        TSEmptySwizzle.swizzle()
         self.image = image
         self.title = title
         self.detail = detail
@@ -81,6 +82,7 @@ open class TSEmptyBaseView: UIView {
                 detail: String?,
                 btnTitle: String?,
                 btnAction: (()->Void)?) {
+        TSEmptySwizzle.swizzle()
         self.image = image
         self.title = title
         self.detail = detail
@@ -92,6 +94,7 @@ open class TSEmptyBaseView: UIView {
     }
     
     public init(customView: UIView) {
+        TSEmptySwizzle.swizzle()
         self.customView = customView
         super.init(frame: .zero)
         prepare()
