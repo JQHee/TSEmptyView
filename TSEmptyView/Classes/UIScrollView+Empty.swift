@@ -73,7 +73,7 @@ extension UIScrollView{
     }
     open func show(){
         if ts_emptyView?.isAutoShowEmptyView != true {
-            self.ts_emptyView?.isHidden = false
+            self.ts_emptyView?.isHidden = true
             return
         }
         ts_showEmptyView()
