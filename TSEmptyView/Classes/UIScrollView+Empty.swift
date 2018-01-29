@@ -10,6 +10,7 @@ import UIKit
 extension UIScrollView{
     fileprivate struct AssociatedKeys{
         static var ts_emptyView: TSEmptyView?
+        static var ts_loadView: UIView?
     }
     
     open var ts_emptyView: TSEmptyView?{
@@ -26,6 +27,26 @@ extension UIScrollView{
             }
             if newValue != nil{
                 addSubview(newValue!)
+            }
+        }
+    }
+    open var ts_loadView: UIView?{
+        get{
+            return objc_getAssociatedObject(self, &AssociatedKeys.ts_emptyView) as? TSEmptyView ?? {
+                let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+                view.layer.addSublayer(TSProgressLayer.init(frame: view.bounds))
+                self.ts_loadView = view
+                return view
+                }()
+        }
+        set{
+            if ts_loadView != nil{
+                ts_loadView?.removeFromSuperview()
+            }
+            objc_setAssociatedObject(self, &AssociatedKeys.ts_emptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            if newValue != nil{
+                addSubview(newValue!)
+                newValue?.center = self.center
             }
         }
     }
@@ -79,21 +100,33 @@ extension UIScrollView{
     static func swizzle(originalSelector: Selector, to swizzledSelector: Selector) {
         let originalMethod = class_getInstanceMethod(self, originalSelector)
         let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
-        if didAddMethod {
-            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
-        } else {
-            method_exchangeImplementations(originalMethod!, swizzledMethod!);
+        method_exchangeImplementations(originalMethod!, swizzledMethod!);
+    }
+    open func ts_startLoading(){
+        self.ts_emptyView?.isHidden = true
+        
+    }
+    open func ts_endLoading(){
+        if totalDataCount == 0 {
+             self.ts_emptyView?.isHidden = false
+        }else{
+             self.ts_emptyView?.isHidden = true
         }
     }
+    
 }
 extension UITableView{
+    private static let onceToken = UUID().uuidString
     static func tableViewSwizzle(){
-        swizzle(originalSelector: #selector(reloadData), to: #selector(ts_reloadData))
-        swizzle(originalSelector: #selector(insertSections(_:with:)), to: #selector(ts_insertSections(_:with:)))
-        swizzle(originalSelector: #selector(deleteSections(_:with:)), to: #selector(ts_deleteSections(_:with:)))
-        swizzle(originalSelector: #selector(insertRows(at:with:)), to: #selector(ts_insertRows(at:with:)))
-        swizzle(originalSelector: #selector(deleteRows(at:with:)), to: #selector(ts_deleteRows(at:with:)))
+        DispatchQueue.ts_once(token: onceToken)
+        {
+            swizzle(originalSelector: #selector(reloadData), to: #selector(ts_reloadData))
+            swizzle(originalSelector: #selector(insertSections(_:with:)), to: #selector(ts_insertSections(_:with:)))
+            swizzle(originalSelector: #selector(deleteSections(_:with:)), to: #selector(ts_deleteSections(_:with:)))
+            swizzle(originalSelector: #selector(insertRows(at:with:)), to: #selector(ts_insertRows(at:with:)))
+            swizzle(originalSelector: #selector(deleteRows(at:with:)), to: #selector(ts_deleteRows(at:with:)))
+            
+        }
     }
     
     @objc func ts_reloadData(){
@@ -120,18 +153,23 @@ extension UITableView{
         getDataAndSet()
     }
     
-   
+    
     
 }
 
 extension UICollectionView{
-//    private static let onceToken = UUID().uuidString
+    private static let onceToken = UUID().uuidString
     static func collectionViewSwizzle(){
-        swizzle(originalSelector: #selector(reloadData), to: #selector(ts_reloadData))
-        swizzle(originalSelector: #selector(insertSections(_:)), to: #selector(ts_insertSections(_:)))
-        swizzle(originalSelector: #selector(insertItems(at:)), to: #selector(ts_insertItems(at:)))
-        swizzle(originalSelector: #selector(deleteItems(at:)), to: #selector(ts_deleteItems(at:)))
-        swizzle(originalSelector: #selector(deleteSections(_:)), to: #selector(ts_deleteSections(_:)))
+        DispatchQueue.ts_once(token: onceToken)
+        {
+            
+            swizzle(originalSelector: #selector(reloadData), to: #selector(ts_reloadData))
+            swizzle(originalSelector: #selector(insertSections(_:)), to: #selector(ts_insertSections(_:)))
+            swizzle(originalSelector: #selector(insertItems(at:)), to: #selector(ts_insertItems(at:)))
+            swizzle(originalSelector: #selector(deleteItems(at:)), to: #selector(ts_deleteItems(at:)))
+            swizzle(originalSelector: #selector(deleteSections(_:)), to: #selector(ts_deleteSections(_:)))
+            
+        }
     }
     @objc func ts_reloadData(){
         ts_reloadData()
@@ -156,8 +194,28 @@ extension UICollectionView{
         ts_deleteItems(at: indexPaths)
         getDataAndSet()
     }
-
+    
     
 }
 
+extension DispatchQueue {
+    
+    private static var onceTracker = [String]()
+    
+    //Executes a block of code, associated with a unique token, only once.  The code is thread safe and will only execute the code once even in the presence of multithreaded calls.
+    public class func ts_once(token: String, block: () -> Void)
+    {   // 保证被 objc_sync_enter 和 objc_sync_exit 包裹的代码可以有序同步地执行
+        objc_sync_enter(self)
+        defer { // 作用域结束后执行defer中的代码
+            objc_sync_exit(self)
+        }
+        
+        if onceTracker.contains(token) {
+            return
+        }
+        
+        onceTracker.append(token)
+        block()
+    }
+}
 

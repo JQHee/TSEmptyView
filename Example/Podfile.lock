@@ -1,5 +1,5 @@
 PODS:
-  - TSEmptyView (0.0.1)
+  - TSEmptyView (0.0.2)
 
 DEPENDENCIES:
   - TSEmptyView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  TSEmptyView: 6de11c568142b18f0735e79611069029696672a3
+  TSEmptyView: e7c5ee298424c5c9db9d78f9de5daa024a4d60cd
 
 PODFILE CHECKSUM: 07009fffe561bff048a28228015d51aacd880cd4
 
