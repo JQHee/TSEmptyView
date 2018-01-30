@@ -104,6 +104,7 @@ extension UIScrollView{
     }
     open func ts_startLoading(){
         self.ts_emptyView?.isHidden = true
+        self.ts_loadView?.isHidden = false
         
     }
     open func ts_endLoading(){
@@ -112,6 +113,7 @@ extension UIScrollView{
         }else{
              self.ts_emptyView?.isHidden = true
         }
+        self.ts_loadView?.isHidden = true
     }
     
 }
