@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TSEmptyView
+//import TSEmptyView
 class ViewController: UIViewController,UITableViewDataSource {
     var tableView: UITableView = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 500))
     var rows: Int = 0
@@ -15,10 +15,11 @@ class ViewController: UIViewController,UITableViewDataSource {
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.dataSource = self
-        tableView.ts_emptyView = TSEmptyView.init(image: #imageLiteral(resourceName: "empty"), title: "没有数据", detail: "发的房间防守打法", btnTitle: "设计", btnAction: {
-            self.rows = 1
-            self.tableView.reloadData()
-        })
+//        tableView.ts_emptyView = TSEmptyView.init(image: #imageLiteral(resourceName: "empty"), title: "没有数据", detail: "发的房间防守打法", btnTitle: "设计", btnAction: {
+//            self.rows = 1
+//            self.tableView.reloadData()
+//        })
+        tableView.ts_startLoading()
         // Do any additional setup after loading the view, typically from a nib.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

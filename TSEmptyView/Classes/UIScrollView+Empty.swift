@@ -11,6 +11,7 @@ extension UIScrollView{
     fileprivate struct AssociatedKeys{
         static var ts_emptyView: TSEmptyView?
         static var ts_loadView: UIView?
+        static var ts_progressLayer: TSProgressLayer?
     }
     
     open var ts_emptyView: TSEmptyView?{
@@ -30,20 +31,25 @@ extension UIScrollView{
             }
         }
     }
+    
+    private var ts_progressLayer: TSProgressLayer?{
+        get{
+            return objc_getAssociatedObject(self, &AssociatedKeys.ts_progressLayer) as? TSProgressLayer
+        }
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.ts_progressLayer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     open var ts_loadView: UIView?{
         get{
-            return objc_getAssociatedObject(self, &AssociatedKeys.ts_emptyView) as? TSEmptyView ?? {
-                let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
-                view.layer.addSublayer(TSProgressLayer.init(frame: view.bounds))
-                self.ts_loadView = view
-                return view
-                }()
+            return objc_getAssociatedObject(self, &AssociatedKeys.ts_loadView) as? UIView
         }
         set{
             if ts_loadView != nil{
                 ts_loadView?.removeFromSuperview()
             }
-            objc_setAssociatedObject(self, &AssociatedKeys.ts_emptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.ts_loadView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             if newValue != nil{
                 addSubview(newValue!)
                 newValue?.center = self.center
@@ -104,14 +110,22 @@ extension UIScrollView{
     }
     open func ts_startLoading(){
         self.ts_emptyView?.isHidden = true
+        if ts_loadView == nil {
+            ts_loadView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+            let progressLayer = TSProgressLayer.init(frame: ts_loadView!.bounds)
+            self.ts_progressLayer = progressLayer
+            ts_loadView?.layer.addSublayer(progressLayer)
+            self.ts_progressLayer?.startSpin()
+        }
+        
         self.ts_loadView?.isHidden = false
         
     }
     open func ts_endLoading(){
         if totalDataCount == 0 {
-             self.ts_emptyView?.isHidden = false
+            self.ts_emptyView?.isHidden = false
         }else{
-             self.ts_emptyView?.isHidden = true
+            self.ts_emptyView?.isHidden = true
         }
         self.ts_loadView?.isHidden = true
     }
